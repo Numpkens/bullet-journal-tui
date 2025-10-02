@@ -1,0 +1,30 @@
+# ---------------------
+# Python Environment
+# ---------------------
+# Virtual environment folder - crucial!
+venv/
+.venv/
+
+# Compiled files
+__pycache__/
+*.pyc
+
+# ---------------------
+# Testing and Cache
+# ---------------------
+.pytest_cache/
+.mypy_cache/
+
+# ---------------------
+# Application Data / Persistence
+# ---------------------
+# Any local database files (like SQLite)
+*.db
+# Log files
+*.log
+
+# ---------------------
+# OS and Editor
+# ---------------------
+.DS_Store
+Thumbs.db
