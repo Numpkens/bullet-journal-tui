@@ -39,6 +39,12 @@ David Gagnon - Numpkens
     **-Environment**	Created and activated a dedicated virtual environment (venv).	Ensured project isolation and dependency reproducibility, a critical practice for production-grade code.
     **-Version Control**	Created a comprehensive .gitignore file.	Maintained a clean Git history by excluding environment files (venv/), caches, and future persistence files (*.db).
 
+**10/3/2025** Implemented a modular architecture that is robust and scalable.
+    **-dataclasses:** Used the @dataclass decorator to automatically generate boilerplate methods (__init__, __repr__, etc.), making the code cleaner.
+    **-Inheritance:** Created specialized classes (TaskEntry, EventEntry, NoteEntry) that inherited all base fields (content, timestamp, signifier) from the parent JournalEntry.
+    **-Default Values:** Overrode inherited fields (like type) and added new fields (like status) with sensible defaults.
+    **-Optional Fields:** Used Optional[str] = None for the location field in EventEntry, practicing proper type hinting for non-mandatory attributes.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
