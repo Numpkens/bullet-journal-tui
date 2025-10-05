@@ -1,8 +1,3 @@
-# 1. this code should import dataclass, datetime and enum 
-# 2. should have an enum "signifier " and it should contain members like priority, inspiration, and none
-# 3. should have a journal entry baseclass including an auto generated  date time stamp default_factory=
-# 4. create a specialized taskentry class(it will set its typ to task and adds the pending status by default)
-
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
@@ -18,7 +13,7 @@ class JournalEntry:
     content: str
     type: str
     signifier: Signifier = Signifier.NONE
-    timestamp: datetime = field(default_factory=datetime.now) 
+    timestamp: datetime = field(default_factory=datetime.now)
 
 @dataclass
 class TaskEntry(JournalEntry):
