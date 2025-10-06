@@ -1,16 +1,15 @@
-# Bullet Journal TUI
+# Bullet Journal TUI - Project: Enterprise Persistence Contract (Python)
 
 ## Description
-This project is a Python-based Text User Interface (TUI) application designed for structured data management, functioning as a digital bullet journal. The primary goal is to establish a clear separation of concerns between the application's business logic (data modeling) and the presentation layer (the TUI). It demonstrates proficiency in managing application state, implementing robust input validation, and designing scalable data persistence mechanisms (using Python's file I/O, with future plans for SQLite/PostgreSQL integration). This modular architecture is directly transferable to building and securing production-grade REST APIs.
+This project is a Python-based Text User Interface (TUI) serving as an **Architectural Proof-of-Concept** for structured data management. It demonstrates proficiency in **Enterprise Patterns** by implementing a **Decoupling Strategy** for data persistence. The design uses Python's file I/O, with the architecture directly prepared for quick swapping to **SQL Server** or PostgreSQL
 
 ## Rationale & Architectural Design
 The architecture prioritizes the core backend challenges required for a Go developer:
 
     - State Management: The application's complex state (tasks, entries, dates) is managed internally, requiring explicit logic to handle state transitions—a key skill for managing concurrent requests in a distributed system.
+    - **Persistence Contract (Interface Design):** The core business logic interacts exclusively with a JournalRepository**interface** (using Pythontyping.Protocol). This treats the storage (file system/database) as an external service, achieving complete **architectural decoupling**. The logic is fully independent of the underlying storage technology (file I/O, **SQL Server**, etc.)
 
-    - Persistence Layer Design: The design treats the file system/database as an external service. This separation ensures the entire business logic layer could be swapped into a different presentation environment (e.g., a web framework or a Go API) without modifying the core data models.
-
-    TUI as a High-Fidelity Interface: Using the Textual TUI library forces complex event handling and input validation logic, simulating the difficulty of maintaining high data integrity across a user interface—a critical requirement for high-stakes backend systems.
+    - **Clean Architecture Demonstration:** Using the TUI library forces complex event handling and input validation logic, simulating the need for maintaining **high data integrity** and **security** at the application boundary.
 
     Future Iteration: The next planned step is to integrate a dedicated database (SQLite/PostgreSQL) and implement basic CRUD operations on the data models to further solidify database proficiency.
 
@@ -39,11 +38,7 @@ David Gagnon - Numpkens
     **-Environment**	Created and activated a dedicated virtual environment (venv).	Ensured project isolation and dependency reproducibility, a critical practice for production-grade code.
     **-Version Control**	Created a comprehensive .gitignore file.	Maintained a clean Git history by excluding environment files (venv/), caches, and future persistence files (*.db).
 
-**10/3/2025** Implemented a modular architecture that is robust and scalable.
-    **-dataclasses:** Used the @dataclass decorator to automatically generate boilerplate methods (__init__, __repr__, etc.), making the code cleaner.
-    **-Inheritance:** Created specialized classes (TaskEntry, EventEntry, NoteEntry) that inherited all base fields (content, timestamp, signifier) from the parent JournalEntry.
-    **-Default Values:** Overrode inherited fields (like type) and added new fields (like status) with sensible defaults.
-    **-Optional Fields:** Used Optional[str] = None for the location field in EventEntry, practicing proper type hinting for non-mandatory attributes.
+**10/3/2025** Established **Enterprise Patterns** for architectural robustness.<br>**- Persistence Contract:** Defined the JournalRepository**Interface** (usingtyping.Protocol) to decouple the application logic from the persistence layer. This design allows for immediate integration with **SQL Server** or other relational databases, a key practice for enterprise applications.<br>**- Decoupling:** Implemented the concrete FileJournalRepositorywhich adheres to the interface, proving the system's modularity and testability.<br>**- Data Models:** Used@dataclass and inheritance to create a rigid, type-safe data model (a prerequisite for **Clean Code** in distributed systems).
 
 ## License
 
