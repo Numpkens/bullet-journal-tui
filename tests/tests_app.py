@@ -1,5 +1,5 @@
 from textual.app import App
-from textual._compose_test import ComposeTester as AppTest
+from textual.app_test import AppTest
 from journal_app.app import BulletJournalApp
 from journal_app.entry import TaskEntry, Signifier, EventEntry, NoteEntry, HabitEntry
 from datetime import datetime
