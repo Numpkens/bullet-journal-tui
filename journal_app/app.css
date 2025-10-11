@@ -1,13 +1,4 @@
-/* --- Rose Pine Moon Color Palette ---
-Base: #232136 (Main background)
-Surface: #2a273f (List/Form background)
-Muted: #6e6a86 (Dimmed text)
-Text: #e0def4 (Primary text)
-Love/Rose: #eb6f92 (Task color)
-Pine: #3e8fb0 (Header/Accent color)
-*/
-
-/* Styling for the application as a whole */
+/* --- Rose Pine Moon Color Palette --- */
 Screen {
     background: #232136; /* Base */
 }
@@ -22,17 +13,47 @@ Header, Footer {
 /* --- JournalScreen Styles --- */
 
 JournalScreen {
-    layout: vertical; 
+    display: block; 
 }
 
 #journal-title {
     height: 1;
-    content-align: center middle;
+    /* 💥 FIX: Correct property is 'align' (Line 22) */
+    align: center middle; 
     background: #2a273f; /* Surface */
     color: #e0def4; /* Text */
     padding: 0 2;
     margin-bottom: 1;
 }
+
+/* --- Future Log Filter Styles (Step 5) --- */
+#future-log-filters {
+    display: block; 
+    padding: 1 2;
+    background: #2a273f;
+    border-bottom: heavy #6e6a86;
+    height: 5;
+}
+
+#filter-title {
+    color: #3e8fb0;
+    /* 💥 FIX: Correct property is 'text' (Line 40) */
+    text: bold;
+    margin-bottom: 1;
+}
+
+#filter-controls {
+    height: 100%;
+    /* 💥 FIX: Correct property is 'align' (Line 46) */
+    align: top;
+}
+
+#filter-year-select, #filter-month-select {
+    width: 1fr;
+    margin-right: 2;
+}
+/* --- End Future Log Filter Styles --- */
+
 
 #entry-list {
     height: 1fr; 
@@ -65,14 +86,13 @@ EntryDisplay {
 
 /* --- New Entry Screen Styles --- */
 
-/* 💥 CRITICAL FIX: Use grid layout and align to center the form block */
 NewEntryScreen {
-    layout: grid; 
+    display: grid; 
     align: center middle; 
 }
 
 #new-entry-form {
-    layout: vertical;
+    display: block;
     height: 90%; 
     width: 60%;
     max-width: 80; 
@@ -81,14 +101,17 @@ NewEntryScreen {
     border: heavy #6e6a86; /* Muted border */
 }
 
-#new-entry-title {
+.form-title {
     height: 1;
-    content-align: center middle;
+    /* 💥 FIX: Correct property is 'align' (Line 89) */
+    align: center middle; 
+    /* 💥 FIX: Correct property is 'text' (Line 107) */
+    text: bold; 
     color: #e0def4; /* Text */
     margin-bottom: 2;
 }
 
-#entry-content-input {
+#content-input {
     height: 1fr; 
     width: 100%;
     margin-bottom: 2;

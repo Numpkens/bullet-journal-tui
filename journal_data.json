@@ -3,37 +3,22 @@
         "content": "Welcome! This journal is definitely populated.",
         "type": "Note",
         "signifier": "#",
-        "timestamp": "2025-10-11T14:32:22.855575",
+        "timestamp": "2025-10-11T14:58:58.822841",
         "_type": "NoteEntry"
     },
     {
         "content": "Finalize Textual app layout and styles (High Priority).",
         "type": "Task",
         "signifier": "*",
-        "timestamp": "2025-10-11T14:32:22.855581",
+        "timestamp": "2025-10-11T14:58:58.822848",
         "status": "Pending",
-        "_type": "TaskEntry"
-    },
-    {
-        "content": "Verify Persistence Logic.",
-        "type": "Task",
-        "signifier": " ",
-        "timestamp": "2025-10-11T14:32:22.855583",
-        "status": "Complete",
         "_type": "TaskEntry"
     },
     {
         "content": "Use 'q' to quit and 'n' to go to the New Entry screen.",
         "type": "Note",
         "signifier": " ",
-        "timestamp": "2025-10-11T14:32:22.855584",
-        "_type": "NoteEntry"
-    },
-    {
-        "content": "this is a test on the app broadcast system",
-        "type": "Note",
-        "signifier": " ",
-        "timestamp": "2025-10-11T14:32:46.180240",
+        "timestamp": "2025-10-11T14:58:58.822850",
         "_type": "NoteEntry"
     }
 ]
