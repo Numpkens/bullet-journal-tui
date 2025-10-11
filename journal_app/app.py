@@ -6,16 +6,16 @@ from journal_app.screens import JournalScreen, NewEntryScreen
 from journal_app.persistence import load_entries, save_entries
 from journal_app.entry import JournalEntry, NoteEntry, TaskEntry, Signifier 
 from datetime import datetime
-# Use built-in list type hint
 
 class BulletJournalApp(App):
     """The main Textual application for the Rider Carroll-style Bullet Journal."""
     
     CSS_PATH = "app.css"
-
-    SCREENS = {
-        "new_entry": NewEntryScreen, 
-    }
+    
+    BINDINGS = [
+        ("n", "new_entry", "New Entry"),
+        ("q", "quit", "Quit"),
+    ]
     
     entries: list[JournalEntry] 
 
@@ -24,34 +24,40 @@ class BulletJournalApp(App):
         
         self.entries: list[JournalEntry] = load_entries()
 
-        # 💥 FIX: GUARANTEED DUMMY DATA (UNCONDITIONAL OVERWRITE)
-        self.entries = [
-            NoteEntry(
-                "Welcome! This journal is definitely populated.", 
-                signifier=Signifier.INSPIRATION, 
-                timestamp=datetime.now()
-            ),
-            TaskEntry(
-                "Finalize Textual app layout and styles (High Priority).", 
-                status="Pending", 
-                signifier=Signifier.PRIORITY, 
-                timestamp=datetime.now()
-            ),
-            NoteEntry(
-                "Use 'q' to quit and 'n' to go to the New Entry screen.",
-                timestamp=datetime.now()
-            )
-        ]
+        # ✅ FIX: Only add dummy data if the journal is empty
+        if not self.entries:
+            self.entries = [
+                NoteEntry(
+                    "Welcome! This is your first entry.", 
+                    signifier=Signifier.INSPIRATION, 
+                    timestamp=datetime.now()
+                ),
+                TaskEntry(
+                    "Finalize Textual app layout and styles (High Priority).", 
+                    status="Pending", 
+                    signifier=Signifier.PRIORITY, 
+                    timestamp=datetime.now()
+                ),
+                NoteEntry(
+                    "Use 'q' to quit and 'n' to go to the New Entry screen.",
+                    timestamp=datetime.now()
+                )
+            ]
+        
+        # Install the NewEntryScreen
+        self.install_screen(NewEntryScreen(), name="new_entry")
 
     def compose(self) -> ComposeResult:
         """Composes the application shell (Header/Footer) and the initial screen."""
-        # 💥 CRITICAL FIX: The Header and Footer must be yielded here only once.
         yield Header()
         yield Footer()
         
         # Yield the JournalScreen as the initial screen
-        yield JournalScreen(self.entries, id="journal") 
+        yield JournalScreen(self.entries, id="journal")
     
+    def action_new_entry(self) -> None:
+        """Push the new entry screen."""
+        self.push_screen("new_entry")
     
     async def action_quit(self):
         """Quits the application, saving data first."""

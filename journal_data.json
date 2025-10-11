@@ -1,9 +1,40 @@
 [
     {
-        "content": "Welcome! This journal is definitely populated.",
+        "content": "is this is this",
+        "type": "Task",
+        "signifier": "*",
+        "timestamp": "2025-10-11T16:49:17.900008",
+        "status": "Pending",
+        "_type": "TaskEntry"
+    },
+    {
+        "content": "help",
+        "type": "Task",
+        "signifier": "*",
+        "timestamp": "2025-10-11T16:24:56.322761",
+        "status": "Pending",
+        "_type": "TaskEntry"
+    },
+    {
+        "content": "class",
         "type": "Note",
         "signifier": "#",
-        "timestamp": "2025-10-11T14:58:58.822841",
+        "timestamp": "2025-10-11T16:17:54.334017",
+        "_type": "NoteEntry"
+    },
+    {
+        "content": "complete this app",
+        "type": "Task",
+        "signifier": "*",
+        "timestamp": "2025-10-11T16:09:53.442181",
+        "status": "Pending",
+        "_type": "TaskEntry"
+    },
+    {
+        "content": "Use 'q' to quit and 'n' to go to the New Entry screen.",
+        "type": "Note",
+        "signifier": " ",
+        "timestamp": "2025-10-11T14:58:58.822850",
         "_type": "NoteEntry"
     },
     {
@@ -15,10 +46,10 @@
         "_type": "TaskEntry"
     },
     {
-        "content": "Use 'q' to quit and 'n' to go to the New Entry screen.",
+        "content": "Welcome! This journal is definitely populated.",
         "type": "Note",
-        "signifier": " ",
-        "timestamp": "2025-10-11T14:58:58.822850",
+        "signifier": "#",
+        "timestamp": "2025-10-11T14:58:58.822841",
         "_type": "NoteEntry"
     }
 ]

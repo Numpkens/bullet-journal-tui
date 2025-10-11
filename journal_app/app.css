@@ -1,4 +1,13 @@
-/* --- Rose Pine Moon Color Palette --- */
+/* --- Rose Pine Moon Color Palette ---
+Base: #232136 (Main background)
+Surface: #2a273f (List/Form background)
+Muted: #6e6a86 (Dimmed text)
+Text: #e0def4 (Primary text)
+Love/Rose: #eb6f92 (Task color)
+Pine: #3e8fb0 (Header/Accent color)
+*/
+
+/* Styling for the application as a whole */
 Screen {
     background: #232136; /* Base */
 }
@@ -13,39 +22,36 @@ Header, Footer {
 /* --- JournalScreen Styles --- */
 
 JournalScreen {
-    display: block; 
+    layout: vertical; 
 }
 
 #journal-title {
-    height: 1;
-    /* 💥 FIX: Correct property is 'align' (Line 22) */
-    align: center middle; 
+    height: 3;
+    text-align: center;
     background: #2a273f; /* Surface */
     color: #e0def4; /* Text */
-    padding: 0 2;
+    padding: 1 2;
     margin-bottom: 1;
 }
 
 /* --- Future Log Filter Styles (Step 5) --- */
 #future-log-filters {
-    display: block; 
+    layout: vertical;
     padding: 1 2;
     background: #2a273f;
     border-bottom: heavy #6e6a86;
-    height: 5;
+    height: auto;
 }
 
 #filter-title {
     color: #3e8fb0;
-    /* 💥 FIX: Correct property is 'text' (Line 40) */
-    text: bold;
+    text-style: bold;
     margin-bottom: 1;
 }
 
 #filter-controls {
-    height: 100%;
-    /* 💥 FIX: Correct property is 'align' (Line 46) */
-    align: top;
+    height: auto;
+    layout: horizontal;
 }
 
 #filter-year-select, #filter-month-select {
@@ -58,18 +64,33 @@ JournalScreen {
 #entry-list {
     height: 1fr; 
     width: 100%;
-    border: none;
+    /* Ensuring the list area is defined */
+    border: solid #6e6a86;
     background: #232136; /* Base */
 }
 
+/* 💥 CRITICAL FIX: Add dimensions, background, and spacing to ListItems */
 ListItem {
     height: auto; 
-    margin: 0;
-    padding: 0;
+    /* The next three lines are crucial for making the entries visible and distinct */
+    min-height: 3; /* Guaranteed minimum height */
+    margin: 0 0 1 0; /* Space between entries */
+    padding: 1 2; /* Space around content */
+    
+    background: #2a273f; /* Surface for list item background */
+    border: solid #6e6a86;
+}
+
+ListItem:hover {
+    background: #393552;
+}
+
+ListItem.-selected {
+    background: #3e8fb0;
 }
 
 EntryDisplay {
-    padding: 0 1;
+    padding: 0;
     color: #e0def4; /* Text */
     width: 100%;
     height: auto;
@@ -79,20 +100,27 @@ EntryDisplay {
 .note { 
     color: #908caa; /* Muted accent for Note */
 }
+
 .task { 
     color: #eb6f92; /* Love/Rose for high visibility tasks */
 }
 
+.event {
+    color: #9ccfd8; /* Foam for events */
+}
+
+.habit {
+    color: #c4a7e7; /* Iris for habits */
+}
 
 /* --- New Entry Screen Styles --- */
 
 NewEntryScreen {
-    display: grid; 
     align: center middle; 
 }
 
 #new-entry-form {
-    display: block;
+    layout: vertical;
     height: 90%; 
     width: 60%;
     max-width: 80; 
@@ -102,26 +130,25 @@ NewEntryScreen {
 }
 
 .form-title {
-    height: 1;
-    /* 💥 FIX: Correct property is 'align' (Line 89) */
-    align: center middle; 
-    /* 💥 FIX: Correct property is 'text' (Line 107) */
-    text: bold; 
-    color: #e0def4; /* Text */
+    height: 3;
+    text-align: center;
+    text-style: bold;
+    color: #e0def4;
     margin-bottom: 2;
 }
 
-#content-input {
-    height: 1fr; 
-    width: 100%;
-    margin-bottom: 2;
-    background: #232136; /* Base */
-    color: #e0def4; /* Text */
+Label {
+    color: #e0def4;
+    margin-bottom: 1;
 }
 
-#submit-button {
+TextArea {
+    height: 1fr;
+    max-height: 10;
+    margin-bottom: 2;
+}
+
+Select {
     width: 100%;
-    margin-top: 1;
-    background: #3e8fb0; /* Pine Accent */
-    color: #232136; /* Base for contrast */
+    margin-bottom: 1;
 }
