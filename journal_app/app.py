@@ -1,28 +1,66 @@
 from textual.app import App, ComposeResult
-from textual.widgets import Header, Footer, Label
-from textual.containers import Container
-
-# 💡 Metacognitive Tip:
-# The `ComposeResult` type hint and the `compose` method are core Textual patterns.
-# The `compose` method is how you define the initial layout of your app's screen.
+from textual.widgets import Header, Footer
+from journal_app.screens import JournalScreen, NewEntryScreen 
+from journal_app.persistence import load_entries, save_entries
+# CRITICAL: Import all necessary entry classes
+from journal_app.entry import JournalEntry, NoteEntry, TaskEntry, Signifier, EventEntry
+from datetime import datetime
 
 class BulletJournalApp(App):
     """The main Textual application for the Rider Carroll-style Bullet Journal."""
-
-    # Set the CSS file for styling
+    
     CSS_PATH = "app.css"
 
+    SCREENS = {
+        "new_entry": NewEntryScreen, 
+    }
+    
+    entries: list[JournalEntry] 
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        
+        # Try to load entries, but initialize as empty list if not found
+        self.entries: list[JournalEntry] = load_entries()
+
+        # 💥 FIX: GUARANTEED DUMMY DATA FOR TESTING LAYOUT. 
+        # Replace this with a conditional check later if you want real persistence.
+        if not self.entries:
+            self.entries = [
+                NoteEntry(
+                    "Welcome! This journal is definitely populated.", 
+                    signifier=Signifier.INSPIRATION, 
+                    timestamp=datetime.now()
+                ),
+                TaskEntry(
+                    "Finalize Textual app layout and styles (High Priority).", 
+                    status="Pending", 
+                    signifier=Signifier.PRIORITY, 
+                    timestamp=datetime.now()
+                ),
+                TaskEntry(
+                    "Verify Persistence Logic.", 
+                    status="Complete", 
+                    timestamp=datetime.now()
+                ),
+                NoteEntry(
+                    "Use 'q' to quit and 'n' to go to the New Entry screen.",
+                    timestamp=datetime.now()
+                )
+            ]
+
     def compose(self) -> ComposeResult:
-        """Create a header, footer, and a main content area."""
+        """Composes the application shell (Header/Footer) and the initial screen."""
         yield Header()
         yield Footer()
-        # This will be the main area where you display the journal content
-        yield Container(
-            Label("Welcome to your Bullet Journal!", id="welcome-message"),
-            id="app-grid"
-        )
+        yield JournalScreen(self.entries, id="journal") 
+    
+    async def action_quit(self):
+        """Quits the application, saving data first."""
+        save_entries(self.entries)
+        await super().action_quit() 
 
-# This block allows you to run the app directly
+
 if __name__ == "__main__":
     app = BulletJournalApp()
     app.run()

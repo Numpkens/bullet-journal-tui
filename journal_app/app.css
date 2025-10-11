@@ -1,0 +1,104 @@
+/* --- Rose Pine Moon Color Palette ---
+Base: #232136 (Main background)
+Surface: #2a273f (List/Form background)
+Muted: #6e6a86 (Dimmed text)
+Text: #e0def4 (Primary text)
+Love/Rose: #eb6f92 (Task color)
+Pine: #3e8fb0 (Header/Accent color)
+*/
+
+/* Styling for the application as a whole */
+Screen {
+    background: #232136; /* Base */
+}
+
+/* --- Global Widgets --- */
+
+Header, Footer {
+    background: #3e8fb0; /* Pine Accent */
+    color: #232136; /* Base for contrast */
+}
+
+/* --- JournalScreen Styles --- */
+
+JournalScreen {
+    layout: vertical; 
+}
+
+#journal-title {
+    height: 1;
+    content-align: center middle;
+    background: #2a273f; /* Surface */
+    color: #e0def4; /* Text */
+    padding: 0 2;
+    margin-bottom: 1;
+}
+
+#entry-list {
+    height: 1fr; 
+    width: 100%;
+    border: none;
+    background: #232136; /* Base */
+}
+
+ListItem {
+    height: auto; 
+    margin: 0;
+    padding: 0;
+}
+
+EntryDisplay {
+    padding: 0 1;
+    color: #e0def4; /* Text */
+    width: 100%;
+    height: auto;
+}
+
+/* Specific Entry Type Colors */
+.note { 
+    color: #908caa; /* Muted accent for Note */
+}
+.task { 
+    color: #eb6f92; /* Love/Rose for high visibility tasks */
+}
+
+
+/* --- New Entry Screen Styles --- */
+
+/* 💥 CRITICAL FIX: Use grid layout and align to center the form block */
+NewEntryScreen {
+    layout: grid; 
+    align: center middle; 
+}
+
+#new-entry-form {
+    layout: vertical;
+    height: 90%; 
+    width: 60%;
+    max-width: 80; 
+    padding: 2;
+    background: #2a273f; /* Surface */
+    border: heavy #6e6a86; /* Muted border */
+}
+
+#new-entry-title {
+    height: 1;
+    content-align: center middle;
+    color: #e0def4; /* Text */
+    margin-bottom: 2;
+}
+
+#entry-content-input {
+    height: 1fr; 
+    width: 100%;
+    margin-bottom: 2;
+    background: #232136; /* Base */
+    color: #e0def4; /* Text */
+}
+
+#submit-button {
+    width: 100%;
+    margin-top: 1;
+    background: #3e8fb0; /* Pine Accent */
+    color: #232136; /* Base for contrast */
+}
