@@ -1,24 +1,2 @@
-# Core dependencies
-textual==6.2.1
-rich==14.1.0
-
-# Testing
-pytest==8.4.2
-pytest-asyncio==0.23.0
-pytest-cov==4.1.0
-
-# Optional: SQL Server support
-# pyodbc==5.0.1
-
-# Dependencies from textual
-iniconfig==2.1.0
-linkify-it-py==2.0.3
-markdown-it-py==4.0.0
-mdit-py-plugins==0.5.0
-mdurl==0.1.2
-packaging==25.0
-platformdirs==4.4.0
-pluggy==1.6.0
-Pygments==2.19.2
-typing_extensions==4.15.0
-uc-micro-py==1.0.3
+# requirements.txt
+tabulate

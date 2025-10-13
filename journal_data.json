@@ -1,55 +1,46 @@
 [
     {
-        "content": "is this is this",
-        "type": "Task",
-        "signifier": "*",
-        "timestamp": "2025-10-11T16:49:17.900008",
-        "status": "Pending",
+        "content": "push project to github",
+        "signifier": "",
+        "timestamp": "2025-10-13T17:44:44.864514",
+        "status": "\u2022",
         "_type": "TaskEntry"
     },
     {
-        "content": "help",
-        "type": "Task",
-        "signifier": "*",
-        "timestamp": "2025-10-11T16:24:56.322761",
-        "status": "Pending",
-        "_type": "TaskEntry"
-    },
-    {
-        "content": "class",
-        "type": "Note",
-        "signifier": "#",
-        "timestamp": "2025-10-11T16:17:54.334017",
+        "content": "Welcome to your CLI Bullet Journal! Start by pressing 'A' to Add an entry.",
+        "signifier": "!",
+        "timestamp": "2025-10-13T17:43:03.069098",
         "_type": "NoteEntry"
     },
     {
-        "content": "complete this app",
-        "type": "Task",
+        "content": "Task: Press 'X' or 'M' and the index number to mark me as Complete (X) or Migrated (>).",
         "signifier": "*",
-        "timestamp": "2025-10-11T16:09:53.442181",
-        "status": "Pending",
+        "timestamp": "2025-10-13T17:43:03.069098",
+        "status": "\u2022",
         "_type": "TaskEntry"
     },
     {
-        "content": "Use 'q' to quit and 'n' to go to the New Entry screen.",
-        "type": "Note",
-        "signifier": " ",
-        "timestamp": "2025-10-11T14:58:58.822850",
-        "_type": "NoteEntry"
+        "content": "Event: Press 'C' and the index number to mark me as Complete (\u2713).",
+        "signifier": "",
+        "timestamp": "2025-10-13T17:43:03.069098",
+        "location": "Demo Location",
+        "is_completed": false,
+        "_type": "EventEntry"
     },
     {
-        "content": "Finalize Textual app layout and styles (High Priority).",
-        "type": "Task",
-        "signifier": "*",
-        "timestamp": "2025-10-11T14:58:58.822848",
-        "status": "Pending",
-        "_type": "TaskEntry"
+        "content": "Habit: Press 'H' and the index number to mark me as complete for TODAY.",
+        "signifier": "",
+        "timestamp": "2025-10-12T17:43:03.069098",
+        "frequency": "Daily",
+        "completed_dates": [
+            "2025-10-13"
+        ],
+        "_type": "HabitEntry"
     },
     {
-        "content": "Welcome! This journal is definitely populated.",
-        "type": "Note",
-        "signifier": "#",
-        "timestamp": "2025-10-11T14:58:58.822841",
+        "content": "View your Spreads: Press 'V' to see the Weekly, Monthly, and Habit Tracker views.",
+        "signifier": "?",
+        "timestamp": "2025-10-12T16:43:03.069098",
         "_type": "NoteEntry"
     }
 ]
